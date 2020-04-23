@@ -25,15 +25,6 @@
 </th>{% endfor %}
 </tr>
 
-{% if cl.aggregations %}
-<tr>
-{% for agg in cl.aggregations %}
-<th>
-  <b style="padding: 8px;">{{ agg }}</b>
-</th>{% endfor %}
-</tr>
-{% endif %}
-
 </thead>
 <tbody>
 {% for result in results %}
@@ -42,6 +33,16 @@
 {% endif %}
 <tr class="{% cycle 'row1' 'row2' %}">{% for item in result %}{{ item }}{% endfor %}</tr>
 {% endfor %}
+
+{% if cl.aggregations %}
+<tr style="background-color: #ddddddba">
+{% for agg in cl.aggregations %}
+<td>
+  <b style="padding: 8px;">{{ agg }}</b>
+</td>{% endfor %}
+</tr>
+{% endif %}
+
 </tbody>
 </table>
 </div>
